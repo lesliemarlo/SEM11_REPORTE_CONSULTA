@@ -1,5 +1,6 @@
 package com.empresa.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,12 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 	@Override
 	public List<Empleado> listaPorNombreApellidoIgualActualiza(String nombre, String apellido, int idEmpleado) {
 		return repository.listaEmpleadoNombreApellidoIgualActualiza(nombre, apellido, idEmpleado);
+	}
+
+	//SEMANA 11- LUEGO DE SERVICE
+	@Override
+	public List<Empleado> listaConsultaEmpleado(int estado, int idPais, String nomApe, Date desde, Date hasta) {
+		return repository.listaConsultaEmpleado(estado, idPais, nomApe, desde, hasta);
 	}
 
 }

@@ -16,6 +16,7 @@
 <title>Ejemplos de CIBERTEC - Jorge Jacinto</title>
 </head>
 <body>
+<form id="id_form">
 	<div class="container">
 		<h3>Consulta Empleado</h3>
 		<div class="row" style="margin-top: 3%">
@@ -49,6 +50,7 @@
 		<div class="row" style="margin-top: 3%">
 			<div class="col-md-12" align="center">
 				<button type="button" class="btn btn-primary" id="id_btn_filtra">FILTRA</button>
+				<button type="button" class="btn btn-primary" id="id_btn_reporte">REPORTE</button>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 3%">
@@ -70,6 +72,8 @@
 			</div>
 		</div>
 	</div>
+	
+	</form>
 <script type="text/javascript">
 
 $.getJSON("listaPais", {}, function(data){
@@ -78,7 +82,19 @@ $.getJSON("listaPais", {}, function(data){
 	});
 });
 
+//EL REPORTE
+$("#id_btn_reporte").click(function(){
+	$("#id_form").attr("action","reporteEmpleadoPdf");
+	$("#id_form").submit();
+});
+
+//-----
+
 $("#id_btn_filtra").click(function(){
+	
+	//semana 11
+	debugger
+	//--------------------
 	var varEstado = $("#id_estado").is(':checked') ? 1 : 0;  
 	var varPais = $("#id_pais").val();
 	var varNomApe = $("#id_nombres").val();
